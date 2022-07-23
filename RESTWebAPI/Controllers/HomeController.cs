@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RESTWebAPI.Dtos;
 using RESTWebAPI.Models;
 using RESTWebAPI.Repositories;
@@ -14,10 +15,12 @@ namespace RESTWebAPI.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IItemRepository repository;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(IItemRepository repository)
+        public HomeController(IItemRepository repository, ILogger<HomeController> logger)
         {
             this.repository = repository;
+            this.logger = logger;
         }
 
         // GET /items

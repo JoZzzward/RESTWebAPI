@@ -20,9 +20,11 @@ namespace RESTWebAPI.Repositories
         {
             return items;
         }
+
         public async Task<Item> GetItemAsync(Guid id)
         {
-            return items.Where(item => item.Id == id).SingleOrDefault();
+            Item item = items.Where(item => item.Id == id).SingleOrDefault();
+            return item;
         }
 
         public async Task CreateItemAsync(Item item)
